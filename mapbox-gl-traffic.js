@@ -42,7 +42,7 @@ var trafficLayers = [
         'stops': [
           [
             14,
-            2.5
+            5.0
           ],
           [
             20,
@@ -142,7 +142,7 @@ var trafficLayers = [
         'stops': [
           [
             9,
-            1.5
+            3.0
           ],
           [
             18,
@@ -253,7 +253,7 @@ var trafficLayers = [
         'stops': [
           [
             10,
-            0.75
+            1.5
           ],
           [
             15,
@@ -364,11 +364,11 @@ var trafficLayers = [
         'stops': [
           [
             8,
-            0.5
+            1.0
           ],
           [
             9,
-            2.25
+            4.5
           ],
           [
             18,
@@ -467,11 +467,11 @@ var trafficLayers = [
         'stops': [
           [
             6,
-            0.5
+            1.0
           ],
           [
             9,
-            3
+            6
           ],
           [
             18,
@@ -546,11 +546,11 @@ var trafficLayers = [
         'stops': [
           [
             10,
-            1
+            2
           ],
           [
             15,
-            4
+            8
           ],
           [
             20,
@@ -617,11 +617,11 @@ var trafficLayers = [
         'stops': [
           [
             9,
-            0.5
+            1.0
           ],
           [
             18,
-            9
+            18
           ],
           [
             20,
@@ -688,11 +688,11 @@ var trafficLayers = [
         'stops': [
           [
             14,
-            1.5
+            3.0
           ],
           [
             20,
-            13.5
+            20.0
           ]
         ]
       },
@@ -747,15 +747,15 @@ var trafficLayers = [
         'stops': [
           [
             8,
-            0.75
+            1.5
           ],
           [
             18,
-            11
+            20
           ],
           [
             20,
-            15
+            20
           ]
         ]
       },
@@ -818,11 +818,11 @@ var trafficLayers = [
         'stops': [
           [
             6,
-            0.5
+            1.0
           ],
           [
             9,
-            1.5
+            3.0
           ],
           [
             18,
@@ -953,13 +953,13 @@ MapboxTraffic.prototype.render = function () {
       type: 'vector',
       url: 'mapbox://mapbox.mapbox-traffic-v1'
     });
-
-    var roadLayers = this._map.getStyle().layers.filter(function (layer) {
-      return layer['source-layer'] === 'road';
-    });
-    var topRoadLayer = roadLayers[roadLayers.length - 1].id;
+    // var roadLayers = this._map.getStyle().layers.filter(function (layer) {
+    //   return layer['source-layer'] === 'road';
+    // });
+    // var topRoadLayer = roadLayers[roadLayers.length - 1].id;
+    var topLayer = this._map.getStyle().layers[this._map.getStyle().layers.length-1].id;
     var style = this._map.getStyle();
-    var trafficStyle = addLayers(style, trafficLayers, topRoadLayer);
+    var trafficStyle = addLayers(style, trafficLayers, topLayer);
     this._map.setStyle(trafficStyle);
   }
 
