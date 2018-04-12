@@ -1,3 +1,4 @@
+const factor = 2.0;
 var trafficLayers = [
   {
     'id': 'traffic-street-link-bg',
@@ -42,11 +43,11 @@ var trafficLayers = [
         'stops': [
           [
             14,
-            5.0
+            2.5 * factor,
           ],
           [
             20,
-            15.5
+            15.5 * factor,
           ]
         ]
       },
@@ -142,15 +143,15 @@ var trafficLayers = [
         'stops': [
           [
             9,
-            3.0
+            1.5 * factor,
           ],
           [
             18,
-            11
+            11 * factor,
           ],
           [
             20,
-            16.5
+            16.5 * factor,
           ]
         ]
       },
@@ -253,15 +254,15 @@ var trafficLayers = [
         'stops': [
           [
             10,
-            1.5
+            0.75 * factor,
           ],
           [
             15,
-            6
+            6 * factor,
           ],
           [
             20,
-            18
+            18 * factor,
           ]
         ]
       },
@@ -364,19 +365,19 @@ var trafficLayers = [
         'stops': [
           [
             8,
-            1.0
+            0.5 * factor,
           ],
           [
             9,
-            4.5
+            2.25 * factor,
           ],
           [
             18,
-            13
+            13 * factor,
           ],
           [
             20,
-            17.5
+            17.5 * factor,
           ]
         ]
       },
@@ -467,19 +468,19 @@ var trafficLayers = [
         'stops': [
           [
             6,
-            1.0
+            0.5 * factor,
           ],
           [
             9,
-            6
+            3 * factor,
           ],
           [
             18,
-            16
+            16 * factor,
           ],
           [
             20,
-            20
+            20 * factor,
           ]
         ]
       },
@@ -546,15 +547,15 @@ var trafficLayers = [
         'stops': [
           [
             10,
-            2
+            1 * factor,
           ],
           [
             15,
-            8
+            4 * factor,
           ],
           [
             20,
-            16
+            16 * factor,
           ]
         ]
       },
@@ -617,15 +618,15 @@ var trafficLayers = [
         'stops': [
           [
             9,
-            1.0
+            0.5 * factor,
           ],
           [
             18,
-            18
+            9 * factor,
           ],
           [
             20,
-            14
+            14 * factor,
           ]
         ]
       },
@@ -688,11 +689,11 @@ var trafficLayers = [
         'stops': [
           [
             14,
-            3.0
+            1.5 * factor,
           ],
           [
             20,
-            20.0
+            13.5 * factor,
           ]
         ]
       },
@@ -747,15 +748,15 @@ var trafficLayers = [
         'stops': [
           [
             8,
-            1.5
+            0.75 * factor,
           ],
           [
             18,
-            20
+            11 * factor,
           ],
           [
             20,
-            20
+            15 * factor,
           ]
         ]
       },
@@ -818,19 +819,19 @@ var trafficLayers = [
         'stops': [
           [
             6,
-            1.0
+            0.5 * factor,
           ],
           [
             9,
-            3.0
+            1.5 * factor,
           ],
           [
             18,
-            14
+            14 * factor,
           ],
           [
             20,
-            18
+            18 * factor,
           ]
         ]
       },
@@ -886,7 +887,6 @@ var trafficLayers = [
     }
   }
 ];
-
 function addLayers(style, layers, before) {
   for (var i = 0; i < style.layers.length; i++) {
     var layer = style.layers[i];
