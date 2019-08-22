@@ -887,17 +887,10 @@ var trafficLayers = [
     }
   }
 ];
-function addLayers(style, layers, before) {
-  for (var i = 0; i < style.layers.length; i++) {
-    var layer = style.layers[i];
-    if (before === layer.id) {
-      var newLayers = style.layers.slice(0, i).concat(layers).concat(style.layers.slice(i));
-      return Object.assign({ }, style, {
-        layers: newLayers
-      });
-    }
-  }
-  return style;
+function addLayers(style, layers) {
+  return Object.assign({ }, style, {
+    layers: [...style.layers, ...layers]
+  })
 }
 
 /**
@@ -953,13 +946,8 @@ MapboxTraffic.prototype.render = function () {
       type: 'vector',
       url: 'mapbox://mapbox.mapbox-traffic-v1'
     });
-    // var roadLayers = this._map.getStyle().layers.filter(function (layer) {
-    //   return layer['source-layer'] === 'road';
-    // });
-    // var topRoadLayer = roadLayers[roadLayers.length - 1].id;
-    var topLayer = this._map.getStyle().layers[this._map.getStyle().layers.length-1].id;
     var style = this._map.getStyle();
-    var trafficStyle = addLayers(style, trafficLayers, topLayer);
+    var trafficStyle = addLayers(style, trafficLayers);
     this._map.setStyle(trafficStyle);
   }
 
