@@ -889,7 +889,7 @@ var trafficLayers = [
 ];
 function addLayers(style, layers) {
   return Object.assign({ }, style, {
-    layers: [...style.layers, ...layers]
+    layers: style.layers.concat(layers),
   })
 }
 
